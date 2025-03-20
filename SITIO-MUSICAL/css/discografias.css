@@ -1,0 +1,36 @@
+      /* Estilos generales */
+      body {
+        background-color: #121212;
+        color: #eee;
+      }
+      .contenedor-discografia {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+      }
+      .album {
+        position: relative;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        max-width: 200px; /* Añadir un ancho máximo */
+        margin: 0 auto; /* Centrar los álbumes más pequeños */
+      }
+      
+      .album:hover {
+        transform: scale(1.1);
+      }
+      .album {
+        position: relative;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        max-width: 210px; /* Añadir un ancho máximo */
+        margin: 0 auto; /* Centrar los álbumes más pequeños */
+      }
+      
+      .album-title {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: #fff;
+      }

@@ -1,0 +1,230 @@
+.biografia {
+    padding: 4rem 0;
+}
+
+.biografia__titulo {
+    color: var(--oscuro);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.biografia__titulo::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.5rem;
+    background-color: var(--azul);
+    margin: 0.5rem auto 0;
+}
+
+.biografia__contenido {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .biografia__contenido {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+    }
+}
+
+.biografia__imagen {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.biografia__imagen img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.biografia__imagen:hover img {
+    transform: scale(1.05);
+}
+
+.biografia__texto {
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.biografia__texto h3 {
+    color: var(--azul);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.biografia__texto p {
+    margin-bottom: 1.5rem;
+}
+
+.biografia__cita {
+    font-style: italic;
+    border-left: 0.5rem solid var(--azul);
+    padding-left: 2rem;
+    margin: 3rem 0;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+.biografia__cita cite {
+    display: block;
+    text-align: right;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: var(--gris);
+}
+
+.biografia__timeline {
+    margin-top: 5rem;
+}
+
+.biografia__timeline h3 {
+    color: var(--oscuro);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 0.4rem;
+    margin-left: -0.2rem;
+    background-color: var(--azul);
+}
+
+.timeline__evento {
+    position: relative;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.timeline__evento::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.timeline__fecha {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    top: 0;
+    left: 50%;
+    margin-left: -4rem;
+    border-radius: 50%;
+    background-color: var(--azul);
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.timeline__contenido {
+    position: relative;
+    width: 45%;
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.timeline__evento:nth-child(odd) .timeline__contenido {
+    float: left;
+    margin-right: 5%;
+}
+
+.timeline__evento:nth-child(even) .timeline__contenido {
+    float: right;
+    margin-left: 5%;
+}
+
+.timeline__contenido h4 {
+    margin-top: 0;
+    color: var(--oscuro);
+}
+
+.timeline__contenido p {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+
+.timeline__contenido::before {
+    content: '';
+    position: absolute;
+    top: 2.4rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--blanco);
+    transform: rotate(45deg);
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.timeline__evento:nth-child(odd) .timeline__contenido::before {
+    right: -1rem;
+}
+
+.timeline__evento:nth-child(even) .timeline__contenido::before {
+    left: -1rem;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 3rem;
+    }
+    
+    .timeline__fecha {
+        width: 6rem;
+        height: 6rem;
+        left: 3rem;
+        margin-left: -3rem;
+        font-size: 1.6rem;
+    }
+    
+    .timeline__evento:nth-child(odd) .timeline__contenido,
+    .timeline__evento:nth-child(even) .timeline__contenido {
+        width: calc(100% - 8rem);
+        float: right;
+        margin-left: 8rem;
+        margin-right: 0;
+    }
+    
+    .timeline__evento:nth-child(odd) .timeline__contenido::before,
+    .timeline__evento:nth-child(even) .timeline__contenido::before {
+        left: -1rem;
+        right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline__fecha {
+        width: 5rem;
+        height: 5rem;
+        font-size: 1.4rem;
+    }
+    
+    .timeline__evento:nth-child(odd) .timeline__contenido,
+    .timeline__evento:nth-child(even) .timeline__contenido {
+        width: calc(100% - 7rem);
+        margin-left: 7rem;
+    }
+}

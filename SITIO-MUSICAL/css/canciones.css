@@ -1,0 +1,41 @@
+/* Estilos generales */
+body {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Contenedor principal de la canción */
+.cancion-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Video de la canción */
+.cancion-video iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 10px;
+}
+
+/* Letra de la canción */
+.cancion-letra {
+  flex: 1;
+  text-align: justify;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.cancion-letra h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}

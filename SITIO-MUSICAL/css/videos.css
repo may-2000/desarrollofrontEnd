@@ -1,0 +1,231 @@
+/* videos.css - Estilos específicos para la página de videos */
+
+.videos-main {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.videos-titulo {
+    text-align: center;
+    color: var(--oscuro);
+    margin-bottom: 1rem;
+}
+
+.videos-descripcion {
+    text-align: center;
+    max-width: 70rem;
+    margin: 0 auto 3rem auto;
+    color: var(--gris);
+}
+
+.galeria-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.video {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--blanco);
+}
+
+.video:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.video-enlace {
+    display: block;
+    color: var(--oscuro);
+}
+
+.video-miniatura {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    overflow: hidden;
+}
+
+.video-miniatura img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.video:hover .video-miniatura img {
+    transform: scale(1.05);
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.video:hover .video-play {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play i {
+    color: var(--blanco);
+    font-size: 2rem;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-titulo {
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    color: var(--oscuro);
+}
+
+.video-visitas {
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--gris);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Botón volver arriba */
+.btn-volver-arriba {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--azul);
+    color: var(--blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10rem);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 900;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-volver-arriba.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-volver-arriba i {
+    font-size: 2rem;
+}
+
+.btn-volver-arriba:hover {
+    background-color: var(--oscuro);
+}
+
+/* Modal de video */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    max-width: 1000px;
+    background-color: #000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1101;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .galeria-videos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .video-modal-content {
+        width: 95%;
+        height: 50%;
+    }
+    
+    .btn-volver-arriba {
+        bottom: 2rem;
+        right: 2rem;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-videos {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .videos-main {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .video-play {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .btn-volver-arriba {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 4rem;
+        height: 4rem;
+    }
+}

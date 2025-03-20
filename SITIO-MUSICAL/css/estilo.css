@@ -1,0 +1,394 @@
+:root{
+    --oscuro: #000000; /* Negro */
+    --gris: #808080; /* Gris */
+    --azul: #0066CC; /* Azul */
+    --blanco: #FFFFFF;
+    --spotify: #1ED760;
+    --facebook: #1877F2;
+    --twitter: #1DA1F2;
+    --instagram: #E4405F;
+    --tiktok: #000000;
+    --youtube: #FF0000;
+    --apple: #A3AAAE;
+    --titulos: 'Josefin Sans', serif;
+    --parrafos: 'Montserrat', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--parrafos);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    background-color: var(--blanco);
+    margin: 0;
+    padding: 0;
+}
+
+/* Globales */
+.contenedor {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--titulos);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Header */
+.header {
+    background-color: var(--oscuro);
+    padding: 2rem 0;
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    color: var(--blanco);
+}
+
+.logo__nombre {
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.logo__bold {
+    font-weight: 700;
+    color: var(--azul);
+}
+
+/* Navegación móvil */
+@keyframes desplazamiento {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--oscuro);
+    z-index: 1000;
+}
+
+.navegacion.mostrar {
+    height: auto;
+    padding: 1rem 0;
+    animation: desplazamiento 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        position: static;
+        height: auto;
+        background-color: transparent;
+        overflow: visible;
+        width: auto;
+        margin-top: 0;
+    }
+}
+
+.navegacion__enlace {
+    color: var(--blanco);
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .navegacion__enlace {
+        width: auto;
+        padding: 0.5rem 1rem;
+    }
+}
+
+.navegacion__enlace:hover {
+    color: var(--azul);
+}
+
+/* Menú hamburguesa */
+.hamburguesa {
+    display: block;
+    cursor: pointer;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.hamburguesa span {
+    width: 3rem;
+    height: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--blanco);
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .hamburguesa {
+        display: none;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--oscuro);
+    padding: 3rem 0;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer__titulo {
+    color: var(--blanco);
+    margin-bottom: 2rem;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: var(--blanco);
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon i {
+    font-size: 1.8rem;
+}
+
+.facebook {
+    background-color: var(--facebook);
+}
+
+.twitter {
+    background-color: var(--twitter);
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.tiktok {
+    background-color: var(--tiktok);
+    border: 1px solid #69C9D0;
+}
+
+.spotify {
+    background-color: var(--spotify);
+}
+
+.apple {
+    background-color: var(--apple);
+}
+
+.youtube {
+    background-color: var(--youtube);
+}
+
+.canal-detalles {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.canal-detalles__titulo {
+    color: var(--blanco);
+    font-size: 2.4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.canal-link {
+    display: inline-block;
+    color: var(--azul);
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.canal-link:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+
+.canal-info {
+    color: var(--gris);
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.footer__texto {
+    color: var(--gris);
+    margin: 2rem 0 0 0;
+    font-size: 1.4rem;
+}
+
+/* GIF Container */
+.gif-container {
+    position: relative;
+    height: calc(100vh - 20rem);
+    overflow: hidden;
+}
+
+.bg-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.frase-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 80rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+}
+
+.frase {
+    color: var(--blanco);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.autor {
+    color: var(--azul);
+    font-size: 2rem;
+    font-style: italic;
+    text-align: right;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .frase {
+        font-size: 2.5rem;
+    }
+    
+    .autor {
+        font-size: 1.8rem;
+    }
+    
+    .social-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    .social-icon i {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .frase {
+        font-size: 2rem;
+    }
+    
+    .autor {
+        font-size: 1.6rem;
+    }
+    
+    .gif-container {
+        height: calc(100vh - 25rem);
+    }
+    
+    .social-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .social-icon i {
+        font-size: 1.4rem;
+    }
+}
